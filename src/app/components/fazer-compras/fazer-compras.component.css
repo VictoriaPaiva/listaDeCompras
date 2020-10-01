@@ -1,0 +1,10 @@
+::ng-deep .container{
+    min-width:100%;
+    min-height: 100px;
+    border: 1px solid black;
+}
+
+::ng-deep .plus-sign{
+   cursor: pointer; 
+   font-size: 50px;
+}

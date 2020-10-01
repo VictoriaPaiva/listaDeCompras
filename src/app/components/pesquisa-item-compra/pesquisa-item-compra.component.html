@@ -1,0 +1,23 @@
+<section class="container">
+  <section class="search-location">
+    <input class="search shadow" type="text" (change)="pesquisaPorItem($event.target.value)" placeholder="Pesquisar...">
+  </section>
+  <h1>Item pesquisa</h1>
+  <table class="table table-hover shadow">
+    <thead>
+      <tr>
+        <th class= "centraliza" scope="col">Nome</th>
+        <th class= "centraliza" scope="col">Preço</th>
+        <th class= "centraliza" scope="col">Quantidade</th>
+      </tr>
+    </thead>
+    <tbody cdkDropList #itemList="cdkDropList" [cdkDropListData]="itensPesquisados" [cdkDropListConnectedTo]="[compraList]"
+      (cdkDropListDropped)="drop($event)">
+      <tr *ngFor="let item of itensPesquisados" cdkDrag>
+        <td class= "centraliza" >{{item.nome}}</td>
+        <td class= "centraliza" >{{item.preco}}</td>
+        <td class= "centraliza" >{{item.quantidade}}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>

@@ -1,0 +1,31 @@
+<div cdkDropListGroup>
+    <app-pesquisa-item-compra [drop]="drop" [compraList]="compraList">
+    </app-pesquisa-item-compra>
+    <section class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <table class="table table-hover shadow">
+                    <thead>
+                        <tr>
+                            <th class= "centraliza" scope="col">Nome</th>
+                            <th class= "centraliza" scope="col">Preço</th>
+                            <th class= "centraliza" scope="col">Quantidade</th>
+                        </tr>
+                    </thead>
+                    <tbody cdkDropList #compraList="cdkDropList" [cdkDropListData]="compra.itensCompra"
+                        [cdkDropListConnectedTo]="[itemList]" (cdkDropListDropped)="drop($event)" class="container">
+                        <tr *ngFor="let item of compra.itensCompra" cdkDrag>
+                            <td class= "centraliza" >{{item.nome}}</td>
+                            <td class= "centraliza" >{{item.preco}}</td>
+                            <td class= "centraliza" ><span class="plus-sign" (click)="decreaseQuantity(item)">-</span><span> {{item.quantidade}} </span> <span class="plus-sign" (click)="increaseQuantity(item)">+</span></td>
+                        </tr>
+                        <tr>
+                            <td>Valor Total: {{compra.valorTotal}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </section>
+</div>
